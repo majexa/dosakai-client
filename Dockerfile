@@ -8,4 +8,3 @@ RUN chmod 600 /usr/src/dosakai/insecure_key
 
 COPY run.sh /usr/src/dosakai
 RUN chmod +x /usr/src/dosakai/run.sh
-
