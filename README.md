@@ -15,31 +15,31 @@ Create project file structure like that:
 `.drone.yml` file example:
 
 ```yml
-    pipeline:
-      test:
-        image: majexa/dosakai-client
-        commands:
-          # Pushing feature file to Dosakai Server over SSH
-          - cd /usr/src/dosakai; bash run.sh /drone/src/test.feature
+pipeline:
+  test:
+    image: majexa/dosakai-client
+    commands:
+      # Pushing feature file to Dosakai Server over SSH
+      - cd /usr/src/dosakai; bash run.sh /drone/src/test.feature
 
-    services:
-      dosakai:
-        image: majexa/dosakai
-        environment:
-          EMAIL_SENDER: ci@majexa.ru
-          EMAIL_SCREENSHOTS_TO: result@majexa.ru
-          SMTP_EMAIL: XXX@XXX.XXX
-          SMTP_PASSWORD: XXX
+services:
+  dosakai:
+    image: majexa/dosakai
+    environment:
+      EMAIL_SENDER: ci@majexa.ru
+      EMAIL_SCREENSHOTS_TO: result@majexa.ru
+      SMTP_EMAIL: XXX@XXX.XXX
+      SMTP_PASSWORD: XXX
 ```
 
 `test.feature` file example:
 
 ```gherkin
-    # language: ru
-    Функционал: Общий тест
-      Контекст:
-        Допустим я на странице "http://google.com/"
-        
-      Сценарий: Первая страница
-       Тогда я вижу "google"
+# language: ru
+Функционал: Общий тест
+  Контекст:
+    Допустим я на странице "http://google.com/"
+    
+  Сценарий: Первая страница
+    Тогда я вижу "google"
 ```
